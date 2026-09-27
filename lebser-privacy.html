@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialité - Lebser Deals</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ef4444;
+            --primary-dark: #dc2626;
+            --secondary: #f97316;
+            --accent: #fbbf24;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --text: #334155;
+            --text-light: #64748b;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --dark: #1e293b;
+                --light: #0f172a;
+                --text: #f1f5f9;
+                --text-light: #cbd5e1;
+                --border: #334155;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 3px solid var(--primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            header {
+                background: #1e293b;
+            }
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem 3rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .last-updated {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .toc {
+            background: var(--light);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
+        }
+
+        .toc h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin: 0.5rem 0;
+        }
+
+        .toc a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .toc a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .toc {
+                background: #1e293b;
+            }
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-weight: 500;
+        }
+
+        .data-table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .data-table {
+                background: #1e293b;
+            }
+        }
+
+        .data-table th {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: var(--light);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .data-table tr:nth-child(even) {
+                background: #0f172a;
+            }
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(249, 115, 22, 0.1));
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .info-box {
+                background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(249, 115, 22, 0.2));
+            }
+        }
+
+        .info-box strong {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #cbd5e1;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            main {
+                margin: 1rem auto;
+                padding: 0 1rem 2rem;
+            }
+
+            .data-table {
+                font-size: 0.9rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.6rem;
+            }
+
+            .footer-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">Lebser Deals</a>
+            <nav>
+                <a href="index.html">Accueil</a>
+                <a href="privacy.html" style="color: var(--primary); font-weight: bold;">Confidentialité</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="page-title">Politique de Confidentialité</h1>
+        <p class="last-updated">Dernière mise à jour : 27 septembre 2026</p>
+
+        <div class="toc">
+            <h2>Table des matières</h2>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#data-collected">Données collectées</a></li>
+                <li><a href="#data-usage">Utilisation des données</a></li>
+                <li><a href="#data-sharing">Partage des données</a></li>
+                <li><a href="#moteur-apprenant">Moteur apprenant global</a></li>
+                <li><a href="#security">Sécurité</a></li>
+                <li><a href="#user-rights">Vos droits</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <section id="introduction">
+            <h2>1. Introduction</h2>
+            <p>Lebser Deals (l'« Extension ») respecte votre vie privée et s'engage à protéger vos données personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations lorsque vous utilisez notre extension.</p>
+            <p>L'Extension fonctionne <span class="highlight">entièrement en local</span> sur votre ordinateur. Aucune donnée sensible n'est envoyée vers nos serveurs.</p>
+        </section>
+
+        <section id="data-collected">
+            <h2>2. Données Collectées</h2>
+
+            <h3>Données locales (stockées sur votre appareil)</h3>
+            <p>L'Extension stocke localement les données suivantes pour fonctionner :</p>
+            <ul>
+                <li><strong>Feuilles Google Sheets connectées :</strong> Informations de connexion et références aux feuilles que vous autorisez</li>
+                <li><strong>Paramètres d'utilisation :</strong> Vos préférences et configurations de l'Extension</li>
+                <li><strong>Cache local :</strong> Données temporaires pour optimiser les performances</li>
+                <li><strong>Codes EAN :</strong> Codes-barres produits importés ou créés</li>
+                <li><strong>Appariements produits :</strong> Vos validations et corrections d'appariement produit</li>
+            </ul>
+
+            <h3>Données partagées volontairement (moteur apprenant)</h3>
+            <p>Optionnellement, vous pouvez contribuer au moteur apprenant global en partageant les corrections que vous validez. Seules les données suivantes peuvent être partagées :</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Donnée</th>
+                        <th>Exemple</th>
+                        <th>Raison</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Codes EAN</strong></td>
+                        <td>3017760050129</td>
+                        <td>Standard public GS1, non propriétaire</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Noms normalisés</strong></td>
+                        <td>« Coca-Cola 1.5L »</td>
+                        <td>Noms publics, sans données commerciales</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Validations</strong></td>
+                        <td>« Ces produits correspondent »</td>
+                        <td>Améliorer le moteur de matching</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <strong>🔒 Données JAMAIS partagées :</strong>
+                <ul>
+                    <li>Tarifs et prix</li>
+                    <li>Codes commerciaux internes</li>
+                    <li>Informations d'authentification</li>
+                    <li>Données clients ou personnelles</li>
+                    <li>Historiques de ventes</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="data-usage">
+            <h2>3. Utilisation des Données</h2>
+
+            <h3>Usage local</h3>
+            <p>Vos données locales sont utilisées uniquement pour :</p>
+            <ul>
+                <li>Analyser et comparer les prix fournisseurs</li>
+                <li>Générer des appariements produit recommandés</li>
+                <li>Créer des rapports d'analyse</li>
+                <li>Améliorer les recommandations personnalisées</li>
+            </ul>
+
+            <h3>Usage du moteur apprenant</h3>
+            <p>Les données que vous choisissez de partager sont utilisées pour :</p>
+            <ul>
+                <li><strong>Améliorer la qualité :</strong> Affiner les algorithmes de matching</li>
+                <li><strong>Construire un consensus :</strong> Combiner les validations de plusieurs contributeurs</li>
+                <li><strong>Distribuer les connaissances :</strong> Partager les appariements validés avec d'autres utilisateurs</li>
+                <li><strong>Détecter les anomalies :</strong> Identifier les contributions spamées ou incorrectes</li>
+            </ul>
+        </section>
+
+        <section id="data-sharing">
+            <h2>4. Partage des Données</h2>
+
+            <h3>Vous contrôlez ce qui est partagé</h3>
+            <p>Vous décidez de :</p>
+            <ul>
+                <li><strong>Participer ou non</strong> au moteur apprenant</li>
+                <li><strong>Quels appariements valider</strong> pour le partage</li>
+                <li><strong>Rétirer vos contributions</strong> à tout moment</li>
+            </ul>
+
+            <h3>Quand les données sont partagées</h3>
+            <p>Vos contributions sont partagées uniquement si :</p>
+            <ol>
+                <li>Vous avez explicitement validé l'appariement</li>
+                <li>La contribution répond à nos critères de qualité</li>
+                <li>Un consensus est atteint (minimum 5 validations, 80% d'accord)</li>
+            </ol>
+
+            <h3>Avec qui les données sont partagées</h3>
+            <p>Les données validées sont partagées avec :</p>
+            <ul>
+                <li><strong>Autres utilisateurs Lebser</strong> pour améliorer leurs appariements</li>
+                <li><strong>Le système apprenant centralisé</strong> pour le calcul du consensus</li>
+            </ul>
+        </section>
+
+        <section id="moteur-apprenant">
+            <h2>5. Moteur Apprenant Global</h2>
+
+            <h3>Architecture de confidentialité</h3>
+            <p>Notre moteur apprenant est conçu avec la confidentialité en priorité :</p>
+
+            <div class="info-box">
+                <strong>✓ Architecture décentralisée</strong>
+                <p>Vos données commerciales sensibles restent sur votre ordinateur. Seules vos validations anonymisées contribuent au consensus global.</p>
+            </div>
+
+            <h3>Protection contre les abus</h3>
+            <ul>
+                <li><strong>Limite de contributions :</strong> Maximum 2 validations par utilisateur par jour</li>
+                <li><strong>Validation d'identité :</strong> Historique de contributions vérifié</li>
+                <li><strong>Détection d'anomalies :</strong> Patterns suspects sont signalés</li>
+                <li><strong>Révocation possible :</strong> Contributions frauduleuses peuvent être annulées</li>
+            </ul>
+
+            <h3>Contrôle administrateur</h3>
+            <p>Les administrateurs peuvent :</p>
+            <ul>
+                <li>Vérifier la qualité des contributions</li>
+                <li>Retirer les données frauduleuses</li>
+                <li>Ajuster les seuils de consensus</li>
+                <li>Auditer l'intégrité du système</li>
+            </ul>
+        </section>
+
+        <section id="security">
+            <h2>6. Sécurité</h2>
+
+            <h3>Mesures de sécurité</h3>
+            <ul>
+                <li><strong>Chiffrement local :</strong> Les données en transit utilisent HTTPS</li>
+                <li><strong>Validation côté serveur :</strong> Les données entrantes sont validées pour exclure les champs sensibles</li>
+                <li><strong>Isolation :</strong> Chaque utilisateur a un accès limité à ses propres données</li>
+                <li><strong>Audit :</strong> Les modifications importantes sont enregistrées</li>
+            </ul>
+
+            <h3>Sécurité de Google Sheets</h3>
+            <p>L'Extension se connecte à Google Sheets via OAuth 2.0, le standard de sécurité de Google. Nous :</p>
+            <ul>
+                <li>N'avons accès qu'aux feuilles que vous autorisez</li>
+                <li>N'avons pas accès à vos identifiants Google</li>
+                <li>Respectons les permissions feuille par feuille que vous définissez</li>
+            </ul>
+
+            <h3>Conformité</h3>
+            <p>L'Extension respecte :</p>
+            <ul>
+                <li><strong>RGPD :</strong> Réglementation générale sur la protection des données (UE)</li>
+                <li><strong>CCPA :</strong> California Consumer Privacy Act (États-Unis)</li>
+                <li><strong>Lois locales :</strong> Législations de confidentialité applicables dans votre région</li>
+            </ul>
+        </section>
+
+        <section id="user-rights">
+            <h2>7. Vos Droits</h2>
+
+            <h3>Droits RGPD</h3>
+            <p>Si vous êtes résidant en UE, vous avez le droit de :</p>
+            <ul>
+                <li><strong>Accès :</strong> Consulter les données que nous avons à votre sujet</li>
+                <li><strong>Rectification :</strong> Corriger les données inexactes</li>
+                <li><strong>Suppression :</strong> Demander l'effacement de vos données</li>
+                <li><strong>Portabilité :</strong> Recevoir vos données dans un format structuré</li>
+                <li><strong>Opposition :</strong> Vous opposer au traitement</li>
+            </ul>
+
+            <h3>Droits généraux</h3>
+            <p>Vous pouvez à tout moment :</p>
+            <ul>
+                <li>Cesser d'utiliser l'Extension</li>
+                <li>Supprimer vos données locales</li>
+                <li>Retirer vos contributions au moteur apprenant</li>
+                <li>Révoquer l'accès à Google Sheets</li>
+                <li>Nous contacter pour des questions sur vos données</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>8. Contact</h2>
+
+            <p>Pour toute question concernant cette politique de confidentialité ou vos données :</p>
+
+            <div class="info-box">
+                <p><strong>Email :</strong> <a href="mailto:contact@lebser.com" style="color: var(--primary);">contact@lebser.com</a></p>
+                <p><strong>Objet suggéré :</strong> Demande de confidentialité - Lebser Deals</p>
+            </div>
+
+            <p>Nous répondons à tous les demandes de confidentialité dans un délai de 30 jours.</p>
+
+            <h3>Modifications de cette politique</h3>
+            <p>Nous pouvons mettre à jour cette politique de confidentialité à tout moment. Les modifications importantes vous seront notifiées via :</p>
+            <ul>
+                <li>Une notification dans l'Extension</li>
+                <li>Un email à votre adresse associée</li>
+                <li>Une mise à jour visible sur cette page</li>
+            </ul>
+        </section>
+
+        <p style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border); color: var(--text-light); font-size: 0.9rem; text-align: center;">
+            © 2026 Lebser Deals. Tous droits réservés.
+        </p>
+    </main>
+
+    <footer>
+        <p>Lebser Deals - Extension de Comparaison de Prix Fournisseurs</p>
+        <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="privacy.html">Confidentialité</a>
+            <a href="mailto:contact@lebser.com">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>

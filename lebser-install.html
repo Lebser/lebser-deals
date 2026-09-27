@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide d'Installation - Lebser Deals</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ef4444;
+            --primary-dark: #dc2626;
+            --secondary: #f97316;
+            --accent: #fbbf24;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --text: #334155;
+            --text-light: #64748b;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --dark: #1e293b;
+                --light: #0f172a;
+                --text: #f1f5f9;
+                --text-light: #cbd5e1;
+                --border: #334155;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 3px solid var(--primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            header {
+                background: #1e293b;
+            }
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            font-weight: 500;
+            margin-left: 2rem;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem 3rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .step-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .step {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .step {
+                background: #1e293b;
+            }
+        }
+
+        .step:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .step h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .step p {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .step ol, .step ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .step li {
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .code-block {
+            background: var(--dark);
+            color: #cbd5e1;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .btn-webstore {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 1rem 0;
+            display: inline-block;
+        }
+
+        .btn-webstore:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(239, 68, 68, 0.3);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(251, 191, 36, 0.1));
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .warning-box {
+                background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(251, 191, 36, 0.2));
+            }
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+            border-left: 4px solid #22c55e;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .success-box {
+                background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1));
+            }
+        }
+
+        .screenshot-note {
+            background: var(--light);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .screenshot-note {
+                background: #0f172a;
+                border-color: #334155;
+            }
+        }
+
+        .troubleshoot {
+            background: var(--light);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .troubleshoot {
+                background: #1e293b;
+            }
+        }
+
+        .troubleshoot h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .troubleshoot-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .troubleshoot-item strong {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #cbd5e1;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .step {
+                padding: 1.5rem;
+            }
+
+            .step h2 {
+                font-size: 1.2rem;
+            }
+
+            main {
+                margin: 1rem auto;
+                padding: 0 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">Lebser Deals</a>
+            <nav>
+                <a href="index.html">Accueil</a>
+                <a href="install.html" style="color: var(--primary); font-weight: bold;">Installation</a>
+                <a href="privacy.html">Confidentialité</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="page-title">📥 Guide d'Installation</h1>
+        <p class="subtitle">Installez Lebser Deals en quelques minutes et commencez à optimiser vos prix fournisseurs</p>
+
+        <div class="step-container">
+            <!-- Step 1 -->
+            <div class="step">
+                <div class="step-number">1</div>
+                <h2>Accédez à Chrome Web Store</h2>
+                <p>Rendez-vous sur le Chrome Web Store pour installer l'extension Lebser Deals.</p>
+                <a href="https://chrome.google.com/webstore" target="_blank" class="btn-webstore">
+                    🔗 Ouvrir Chrome Web Store
+                </a>
+                <div class="screenshot-note">
+                    ℹ️ Vous devez utiliser Google Chrome ou un navigateur basé sur Chromium (Edge, Brave, etc.)
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step">
+                <div class="step-number">2</div>
+                <h2>Cherchez "Lebser Deals"</h2>
+                <p>Dans la barre de recherche du Web Store, tapez <strong>"Lebser Deals"</strong> et appuyez sur Entrée.</p>
+                <div class="screenshot-note">
+                    Recherchez notre extension dans la barre de recherche en haut à gauche
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step">
+                <div class="step-number">3</div>
+                <h2>Cliquez sur "Ajouter à Chrome"</h2>
+                <p>Une fois que vous trouvez l'extension Lebser Deals, cliquez sur le bouton <strong>"Ajouter à Chrome"</strong> sur la droite.</p>
+                <div class="screenshot-note">
+                    Le bouton bleu "Ajouter à Chrome" se trouve en haut à droite de la fiche produit
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step">
+                <div class="step-number">4</div>
+                <h2>Confirmez l'installation</h2>
+                <p>Une fenêtre de confirmation s'affichera listant les permissions dont l'extension a besoin. Cliquez sur <strong>"Ajouter l'extension"</strong> pour confirmer.</p>
+                <div class="warning-box">
+                    <strong>⚠️ À propos des permissions :</strong>
+                    <p>L'extension demande accès à Google Sheets pour pouvoir importer et exporter vos données. Aucune autre donnée n'est collectée ou utilisée.</p>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step">
+                <div class="step-number">5</div>
+                <h2>Vérifiez l'installation</h2>
+                <p>Une fois l'extension installée, vous devriez voir l'icône Lebser Deals dans votre barre d'outils Chrome (en haut à droite).</p>
+                <div class="success-box">
+                    <strong>✓ Installation réussie !</strong>
+                    <p>Vous pouvez maintenant cliquer sur l'icône pour ouvrir le tableau de bord de l'extension.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Configuration initiale -->
+        <section style="margin-top: 3rem;">
+            <h2 style="font-size: 1.8rem; color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">⚙️ Configuration Initiale</h2>
+
+            <div class="step" style="margin-top: 1.5rem;">
+                <h3 style="color: var(--secondary); font-size: 1.2rem; margin-bottom: 1rem;">Connectez votre Google Sheet</h3>
+                <p>Pour commencer à utiliser Lebser Deals :</p>
+                <ol>
+                    <li>Ouvrez l'extension en cliquant sur son icône</li>
+                    <li>Cliquez sur le bouton <strong>"Connecter Google Sheets"</strong></li>
+                    <li>Sélectionnez votre compte Google</li>
+                    <li>Acceptez les permissions (l'extension accède uniquement aux sheets que vous autorisez)</li>
+                    <li>Choisissez la feuille de calcul contenant vos données fournisseurs</li>
+                </ol>
+                <div class="screenshot-note">
+                    La connexion utilise le standard OAuth 2.0 de Google - vos identifiants ne sont jamais stockés
+                </div>
+            </div>
+
+            <div class="step" style="margin-top: 1.5rem;">
+                <h3 style="color: var(--secondary); font-size: 1.2rem; margin-bottom: 1rem;">Importez vos données</h3>
+                <p>Préparez votre feuille Google Sheets avec vos données fournisseurs :</p>
+                <ul>
+                    <li><strong>Colonne 1 :</strong> Code EAN (ou identifiant produit)</li>
+                    <li><strong>Colonne 2 :</strong> Nom du produit</li>
+                    <li><strong>Colonne 3 :</strong> Prix du fournisseur</li>
+                    <li><strong>Colonne 4 :</strong> Quantité disponible</li>
+                    <li><strong>Colonnes suivantes :</strong> Tout autre détail utile</li>
+                </ul>
+                <div class="warning-box">
+                    <strong>💡 Conseil :</strong> Plus vos données sont structurées et les codes EAN précis, meilleur sera le matching produit !
+                </div>
+            </div>
+
+            <div class="step" style="margin-top: 1.5rem;">
+                <h3 style="color: var(--secondary); font-size: 1.2rem; margin-bottom: 1rem;">Lancez l'analyse</h3>
+                <p>Une fois vos données importées :</p>
+                <ol>
+                    <li>Cliquez sur <strong>"Analyser les prix"</strong></li>
+                    <li>L'extension compare vos produits avec la base de données globale</li>
+                    <li>Consultez les recommandations et appariements suggérés</li>
+                    <li>Validez ou corrigez les appariements (contribuez au moteur apprenant !)</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <div class="troubleshoot">
+            <h3>🔧 Dépannage</h3>
+
+            <div class="troubleshoot-item">
+                <strong>❌ L'extension ne s'affiche pas dans la barre d'outils</strong>
+                <p>
+                    Cliquez sur l'icône des extensions dans Chrome (en haut à droite, puzzle), puis cherchez Lebser Deals
+                    et cliquez sur le pin pour l'épingler dans la barre d'outils.
+                </p>
+            </div>
+
+            <div class="troubleshoot-item">
+                <strong>❌ Erreur de connexion Google Sheets</strong>
+                <p>
+                    Assurez-vous que vous avez autorisé l'extension à accéder à Google Sheets. Allez dans
+                    <a href="https://myaccount.google.com/permissions" target="_blank">vos permissions Google</a>
+                    et vérifiez que Lebser Deals est autorisé.
+                </p>
+            </div>
+
+            <div class="troubleshoot-item">
+                <strong>❌ Pas de résultats d'appariement</strong>
+                <p>
+                    Vérifiez que vos codes EAN sont valides et correct. L'extension compare les produits en utilisant
+                    les EAN comme identifiant principal. Sans EAN valide, le matching peut être moins performant.
+                </p>
+            </div>
+
+            <div class="troubleshoot-item">
+                <strong>❌ L'extension est lente</strong>
+                <p>
+                    Si vous avez un très grand nombre de produits (>10 000), essayez de les diviser en plusieurs
+                    feuilles et analysez-les séquentiellement.
+                </p>
+            </div>
+
+            <div class="troubleshoot-item">
+                <strong>❓ Autres questions ?</strong>
+                <p>
+                    Contactez-nous à <a href="mailto:contact@lebser.com">contact@lebser.com</a> avec une description
+                    de votre problème et nous vous aiderons au plus vite.
+                </p>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <section style="margin-top: 3rem;">
+            <h2 style="font-size: 1.8rem; color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">💡 Bonnes Pratiques</h2>
+
+            <ul style="margin-top: 1.5rem; margin-left: 1.5rem;">
+                <li><strong>Vérifiez vos codes EAN :</strong> Les codes corrects = meilleur matching</li>
+                <li><strong>Normalisez vos noms :</strong> Utilisez les noms officiels des produits quand possible</li>
+                <li><strong>Maintenez vos données :</strong> Supprimez les produits obsolètes régulièrement</li>
+                <li><strong>Validez les appariements :</strong> Contribuez au moteur apprenant pour améliorer la qualité</li>
+                <li><strong>Sauvegardez régulièrement :</strong> Google Sheets garde un historique, mais faites des sauvegardes</li>
+            </ul>
+        </section>
+
+        <p style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border); color: var(--text-light); font-size: 0.9rem; text-align: center;">
+            Version d'installation pour Lebser Deals v1.0 · © 2026 Lebser Deals
+        </p>
+    </main>
+
+    <footer>
+        <p>Lebser Deals - Extension de Comparaison de Prix Fournisseurs</p>
+        <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="install.html">Installation</a>
+            <a href="privacy.html">Confidentialité</a>
+            <a href="mailto:contact@lebser.com">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>
